@@ -71,8 +71,8 @@ def main():
     token = args.token  # Optional token
 
     # Load the model and tokenizer
-    model = AutoModelForCausalLM.from_pretrained(model_name, device_map='auto', cache_dir=args.cache_dir, use_auth_token=token)
-    tokenizer = AutoTokenizer.from_pretrained(model_name, use_auth_token=token)
+    model = AutoModelForCausalLM.from_pretrained(model_name, device_map='auto', cache_dir=args.cache_dir, token=token)
+    tokenizer = AutoTokenizer.from_pretrained(model_name, token=token)
     tokenizer.pad_token = tokenizer.eos_token
 
     # Directory and number of sentences
